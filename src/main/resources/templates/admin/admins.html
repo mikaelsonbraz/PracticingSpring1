@@ -21,6 +21,13 @@
                         <td th:text="${admin.idAdmin}">...</td>
                         <td th:text="${admin.name}">...</td>
                         <td th:text="${admin.email}">...</td>
+
+                        <td>
+                            <form method="POST" th:action="@{/admins/{id}(id=${admin.idAdmin})}">
+                                <button type="submit">UPDATE</button>
+                            </form>
+                        </td>
+
                         <td>
                             <form method="GET" th:action="@{/admins/{id}(id=${admin.idAdmin})}" onsubmit="return confirm('Confirm?')">
                                 <button type="submit">DELETE</button>

@@ -36,6 +36,23 @@ public class AdminController {
         return "redirect:/admins";
     }
 
+    @PostMapping("/admins/{id}") //PUTMAPPING
+    public String getUpdateAdmin(@PathVariable Integer id, Model model){
+        Admin admin = adminsRepo.findById(id).get();
+        model.addAttribute("admin", admin);
+        return "admin/update.html";
+    }
+
+    @PostMapping("/admins/update/{id}")
+    public String updateAdmin(@PathVariable Integer id, Admin admin){
+        Admin admin1 = adminsRepo.findById(id).get();
+        admin1.setName(admin.getName());
+        admin1.setEmail(admin.getEmail());
+        admin1.setPassword(admin.getPassword());
+        adminsRepo.save(admin1);
+        return "redirect:/admins";
+    }
+
     @GetMapping("/admins/{id}") //DELETEMAPPING
     public String deleteAdmin(@PathVariable Integer id){
         adminsRepo.deleteById(id);

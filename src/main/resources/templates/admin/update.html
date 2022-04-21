@@ -2,25 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>NEW ADMIN</title>
+    <title>UPDATE ADMIN</title>
 </head>
 <body>
 
     <div>
-        <h2>Cadastro de novo administrador</h2>
+        <h2>Atualização de administrador</h2>
 
-        <form method="POST" action="/admins/register" onsubmit="return confirm('Confirm?')">
+        <form method="POST" th:action="@{/admins/update/{id}(id=${admin.idAdmin})}" onsubmit="return confirm('Confirm?')">
             <div class="form-group">
                 <label for="name">Nome</label>
-                <input type="text" id="name" name="name" required placeholder="Digite seu nome">
+                <input type="text" id="name" name="name" required th:value="${admin.name}">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" required placeholder="Digite seu email">
+                <input type="email" id="email" name="email" required th:value="${admin.email}">
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" required placeholder="Password">
+                <input type="password" id="password" name="password" required th:value="${admin.password}">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
