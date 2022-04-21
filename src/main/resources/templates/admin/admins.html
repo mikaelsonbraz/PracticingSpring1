@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admins</title>
+</head>
+<body>
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <th:block th:each="admin: ${admins}">
+                    <tr>
+                        <td th:text="${admin.idAdmin}">...</td>
+                        <td th:text="${admin.name}">...</td>
+                        <td th:text="${admin.email}">...</td>
+
+                        <td>
+                            <form method="POST" th:action="@{/admins/{id}(id=${admin.idAdmin})}">
+                                <button type="submit">UPDATE</button>
+                            </form>
+                        </td>
+
+                        <td>
+                            <form method="GET" th:action="@{/admins/{id}(id=${admin.idAdmin})}" onsubmit="return confirm('Confirm?')">
+                                <button type="submit">DELETE</button>
+                            </form>
+                        </td>
+                    </tr>
+                </th:block>
+            </tbody>
+        </table>
+        <a href="/admins/register">REGISTRAR NOVO ADMIN</a>
+    </div>
+
+</body>
+</html>
