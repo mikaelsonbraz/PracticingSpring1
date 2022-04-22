@@ -2,10 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Index</title>
+    <title>HOME - Login</title>
 </head>
 <body>
-    <h1>Olá pessoas!</h1>
-    <h2>Olá, <span th:text="${name}"></span></h2>
+    <h1>Olá pessoas!</h1><br><br>
+    <form method="POST" action="/login">
+        <div>
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" required placeholder="Digite seu email">
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required placeholder="Digite seu password">
+        </div>
+        <div role="alert" th:text="${erro}"></div>
+        <button type="submit">LOGIN</button>
+    </form>
 </body>
 </html>
