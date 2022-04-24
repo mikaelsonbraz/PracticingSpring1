@@ -52,7 +52,7 @@ public class AdminController {
         return "redirect:/admins";
     }
 
-    @GetMapping("/admins/{id}") //DELETEMAPPING
+    @GetMapping("/admins/delete/{id}") //DELETEMAPPING
     public String deleteAdmin(@PathVariable Integer id){
         adminsRepo.deleteById(id);
         return "redirect:/admins";
